@@ -1,2 +1,3 @@
-# alto-singing-tutor-with-pitch-exercises-and-alto-range-song-transposition
-Exported from Caffeine project: Alto singing tutor with pitch exercises and alto-range song transposition
+## 
+
+To run app build and run docker image: `docker build -t app . docker run -it --network host app`

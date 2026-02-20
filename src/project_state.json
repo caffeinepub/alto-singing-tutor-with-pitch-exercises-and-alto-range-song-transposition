@@ -1,0 +1,418 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 23,
+  "summary": "Math learning app for middle schoolers centered around brainrot themes.",
+  "architectural_notes": [],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-create-the-core-app-structure-for-an-alto-singing-tutor-with-two-primary-sections-1-learn-alto-guided-lessons-exercises-and-2-alto-player-play-transposes-songs-into-an-alto-appropriate-key-range-all-user-facing-text-must-be-in-english",
+      "title": "Create the core app structure for an alto-singing tutor with two primary sections: (1) Learn Alto (guided lessons + exercises) and (2) Alto Player (play/transposes songs into an alto-appropriate key/range). All user-facing text must be in English.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-interactive-alto-singing-exercises-that-use-the-user-s-microphone-to-detect-pitch-in-real-time-and-provide-feedback-for-staying-within-an-alto-range-e-g-too-high-too-low-on-pitch-include-at-least-sustained-note-practice-and-a-short-scale-exercise",
+      "title": "Implement interactive alto singing exercises that use the user’s microphone to detect pitch in real time and provide feedback for staying within an alto range (e.g., \"Too high\", \"Too low\", \"On pitch\"). Include at least: sustained-note practice and a short scale exercise.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-provide-a-beginner-friendly-alto-lesson-flow-that-explains-alto-vocal-range-warmups-posture-breathing-basics-and-how-to-practice-consistently-lessons-must-be-readable-without-audio-input-text-visuals-and-exercises-should-be-launchable-from-within-lessons",
+      "title": "Provide a beginner-friendly alto lesson flow that explains alto vocal range, warmups, posture/breathing basics, and how to practice consistently. Lessons must be readable without audio input (text + visuals), and exercises should be launchable from within lessons.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-alto-player-that-can-take-user-provided-music-content-and-play-it-in-an-alto-appropriate-transposition-support-at-minimum-a-upload-an-audio-file-for-playback-with-adjustable-pitch-shift-transpose-controls-and-b-enter-a-simple-note-sequence-e-g-note-names-durations-and-synthesize-playback-transposed-into-alto-range",
+      "title": "Implement an “Alto Player” that can take user-provided music content and play it in an alto-appropriate transposition. Support at minimum: (a) upload an audio file for playback with adjustable pitch shift (transpose) controls, and (b) enter a simple note sequence (e.g., note names + durations) and synthesize playback transposed into alto range.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-connect-frontend-to-backend-using-react-query-for-loading-lesson-content-marking-lessons-complete-and-showing-a-simple-progress-dashboard-e-g-completed-count-last-practiced-date-summary",
+      "title": "Connect frontend to backend using React Query for: loading lesson content, marking lessons complete, and showing a simple progress dashboard (e.g., completed count, last practiced date/summary).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-cohesive-visual-theme-appropriate-for-a-music-learning-app-distinct-color-palette-typography-spacing-and-component-styling-and-use-it-consistently-across-all-screens-do-not-use-a-blue-purple-primary-theme",
+      "title": "Apply a cohesive visual theme appropriate for a music-learning app (distinct color palette, typography, spacing, and component styling) and use it consistently across all screens. Do not use a blue/purple primary theme.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-image-assets-for-branding-and-onboarding-store-them-under-frontend-public-assets-generated-and-render-them-in-the-ui-e-g-app-header-landing-lesson-intro",
+      "title": "Add generated static image assets for branding and onboarding, store them under frontend/public/assets/generated, and render them in the UI (e.g., app header/landing/lesson intro).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-an-mvp-audio-pitch-shift-player-screen-that-lets-the-user-upload-a-local-audio-file-and-play-it-back-in-the-browser",
+      "title": "Implement an MVP “Audio Pitch Shift Player” screen that lets the user upload a local audio file and play it back in the browser.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-pitch-transpose-controls-for-the-uploaded-audio-with-a-clear-semitone-readout-and-a-reset-option",
+      "title": "Add pitch/transpose controls for the uploaded audio with a clear semitone readout and a reset option.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-provide-basic-playback-ux-and-error-handling-suitable-for-an-mvp-pitch-shift-player",
+      "title": "Provide basic playback UX and error handling suitable for an MVP pitch-shift player.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-identify-the-exact-cause-of-the-current-deployment-failure-and-fix-it-so-the-project-can-successfully-build-and-deploy-to-the-internet-computer-using-the-standard-workflow-e-g-dfx-deploy",
+      "title": "Identify the exact cause of the current deployment failure and fix it so the project can successfully build and deploy to the Internet Computer using the standard workflow (e.g., `dfx deploy`).",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-clear-user-facing-error-handling-in-the-app-shell-for-cases-where-the-frontend-cannot-reach-the-canister-e-g-network-config-agent-errors-showing-an-english-message-and-a-basic-retry-action-instead-of-a-blank-screen-or-crash",
+      "title": "Add clear, user-facing error handling in the app shell for cases where the frontend cannot reach the canister (e.g., network/config/agent errors), showing an English message and a basic retry action instead of a blank screen or crash.",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-project-can-be-deployed-incrementally-by-gating-any-incomplete-or-non-mvp-functionality-behind-safe-defaults-so-it-does-not-block-deployment-focus-on-keeping-the-deployed-build-functional-even-if-some-advanced-features-are-not-yet-enabled",
+      "title": "Ensure the project can be deployed incrementally by gating any incomplete or non-MVP functionality behind safe defaults so it does not block deployment (focus on keeping the deployed build functional even if some advanced features are not yet enabled).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-reproduce-the-current-deployment-failure-using-the-standard-internet-computer-workflow-and-fix-the-exact-underlying-cause-s-so-dfx-deploy-completes-successfully-in-a-clean-environment",
+      "title": "Reproduce the current deployment failure using the standard Internet Computer workflow and fix the exact underlying cause(s) so `dfx deploy` completes successfully in a clean environment.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-gate-any-incomplete-or-non-mvp-functionality-behind-safe-defaults-so-that-unfinished-features-cannot-break-the-build-or-deployment",
+      "title": "Gate any incomplete or non-MVP functionality behind safe defaults so that unfinished features cannot break the build or deployment.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-all-user-facing-error-text-shown-due-to-deployment-config-runtime-issues-is-in-english-and-provides-a-simple-next-step-for-example-a-retry-action-rather-than-failing-silently",
+      "title": "Ensure all user-facing error text shown due to deployment/config/runtime issues is in English and provides a simple next step (for example, a retry action) rather than failing silently.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-alto-karaoke-mode-to-the-frontend-that-provides-karaoke-style-playback-of-a-user-provided-local-audio-file-with-the-existing-transpose-pitch-shift-controls-so-the-song-can-be-sung-in-an-alto-appropriate-key-range",
+      "title": "Add an “Alto Karaoke” mode to the frontend that provides karaoke-style playback of a user-provided local audio file with the existing transpose/pitch-shift controls so the song can be sung in an alto-appropriate key/range.",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-lyrics-support-in-alto-karaoke-mode-allow-the-user-to-provide-lyrics-and-display-them-in-a-karaoke-friendly-reading-view-during-playback",
+      "title": "Implement lyrics support in Alto Karaoke mode: allow the user to provide lyrics and display them in a karaoke-friendly reading view during playback.",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-basic-karaoke-ux-and-guardrails-so-alto-karaoke-mode-is-usable-as-an-mvp-and-does-not-break-build-deployment-when-features-are-incomplete",
+      "title": "Add basic karaoke UX and guardrails so Alto Karaoke mode is usable as an MVP and does not break build/deployment when features are incomplete.",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-core-app-structure-for-a-math-learning-app-targeting-middle-schoolers-with-brainrot-themed-content-including-a-homepage-lesson-browser-and-practice-area",
+      "title": "Create the core app structure for a math learning app targeting middle schoolers with brainrot-themed content, including a homepage, lesson browser, and practice area.",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-lesson-system-with-math-topics-appropriate-for-middle-school-grades-6-8-including-fractions-decimals-percentages-basic-algebra-geometry-and-ratios-presented-with-brainrot-humor-and-references",
+      "title": "Implement a lesson system with math topics appropriate for middle school (grades 6-8) including fractions, decimals, percentages, basic algebra, geometry, and ratios, presented with brainrot humor and references.",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-interactive-math-practice-problems-with-instant-feedback-using-brainrot-themed-scenarios-and-language-to-make-problems-engaging-for-middle-schoolers",
+      "title": "Create interactive math practice problems with instant feedback, using brainrot-themed scenarios and language to make problems engaging for middle schoolers.",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-progress-tracking-system-that-shows-completed-lessons-practice-problem-scores-and-streaks-with-brainrot-themed-achievements-and-encouragement",
+      "title": "Implement a progress tracking system that shows completed lessons, practice problem scores, and streaks, with brainrot-themed achievements and encouragement.",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-vibrant-youth-oriented-visual-theme-with-bold-colors-playful-typography-and-dynamic-layouts-that-appeal-to-middle-schoolers-and-reflect-brainrot-internet-culture-aesthetics-use-colors-other-than-blue-and-purple",
+      "title": "Apply a vibrant, youth-oriented visual theme with bold colors, playful typography, and dynamic layouts that appeal to middle schoolers and reflect brainrot internet culture aesthetics. Use colors other than blue and purple.",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-render-generated-brainrot-themed-image-assets-logos-mascot-characters-lesson-illustrations-achievement-badges-from-frontend-public-assets-generated-throughout-the-ui",
+      "title": "Render generated brainrot-themed image assets (logos, mascot characters, lesson illustrations, achievement badges) from frontend/public/assets/generated throughout the UI.",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-dedicated-practice-mode-interface-that-allows-users-to-select-specific-math-topics-fractions-decimals-percentages-algebra-geometry-ratios-and-practice-problems-from-those-topics-in-a-focused-session",
+      "title": "Create a dedicated practice mode interface that allows users to select specific math topics (fractions, decimals, percentages, algebra, geometry, ratios) and practice problems from those topics in a focused session",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-practice-session-timer-and-problem-counter-that-tracks-how-long-the-user-has-been-practicing-and-how-many-problems-they-have-attempted-in-the-current-session",
+      "title": "Add a practice session timer and problem counter that tracks how long the user has been practicing and how many problems they have attempted in the current session",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-practice-session-summary-screen-that-shows-performance-metrics-including-total-problems-attempted-correct-answers-accuracy-percentage-time-spent-and-brainrot-themed-motivational-feedback-based-on-performance",
+      "title": "Implement a practice session summary screen that shows performance metrics including total problems attempted, correct answers, accuracy percentage, time spent, and brainrot-themed motivational feedback based on performance",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-react-query-hooks-for-practice-mode-including-usepracticeproblemsbytopic-for-fetching-topic-filtered-problems-and-usesubmitpracticesession-for-saving-complete-session-results",
+      "title": "Create React Query hooks for practice mode including usePracticeProblemsByTopic for fetching topic-filtered problems and useSubmitPracticeSession for saving complete session results",
+      "reqIds": [
+        "REQ-31"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-navigation-to-include-a-prominent-link-to-practice-mode-and-ensure-the-practice-mode-route-is-properly-integrated-into-the-existing-tanstack-router-configuration",
+      "title": "Update the navigation to include a prominent link to practice mode and ensure the practice mode route is properly integrated into the existing TanStack Router configuration",
+      "reqIds": [
+        "REQ-32"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-multiplication-as-a-new-topic-option-in-the-practice-mode-topic-selection-interface-practicemodepage-including-an-appropriate-icon-and-brainrot-themed-description-consistent-with-existing-topics",
+      "title": "Add 'Multiplication' as a new topic option in the practice mode topic selection interface (PracticeModePage), including an appropriate icon and brainrot-themed description consistent with existing topics",
+      "reqIds": [
+        "REQ-33"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-division-as-a-new-topic-option-in-the-practice-mode-topic-selection-interface-practicemodepage-including-an-appropriate-icon-and-brainrot-themed-description-consistent-with-existing-topics",
+      "title": "Add 'Division' as a new topic option in the practice mode topic selection interface (PracticeModePage), including an appropriate icon and brainrot-themed description consistent with existing topics",
+      "reqIds": [
+        "REQ-34"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-that-the-project-builds-successfully-with-dfx-build-in-a-clean-environment-without-errors-or-warnings-that-would-block-deployment",
+      "title": "Verify that the project builds successfully with `dfx build` in a clean environment without errors or warnings that would block deployment",
+      "reqIds": [
+        "REQ-37"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-that-the-deployed-frontend-on-mainnet-can-successfully-connect-to-the-deployed-backend-canister-and-load-initial-data-lessons-practice-problems-without-errors",
+      "title": "Verify that the deployed frontend on mainnet can successfully connect to the deployed backend canister and load initial data (lessons, practice problems) without errors",
+      "reqIds": [
+        "REQ-39"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-internet-identity-authentication-works-correctly-on-mainnet-allowing-users-to-log-in-and-maintain-their-session-across-page-refreshes",
+      "title": "Ensure Internet Identity authentication works correctly on mainnet, allowing users to log in and maintain their session across page refreshes",
+      "reqIds": [
+        "REQ-40"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-lesson-browser-page-displays-the-newly-added-lessons-in-an-organized-grid-layout-with-proper-loading-states-and-error-handling-allowing-users-to-browse-all-available-math-topics",
+      "title": "Ensure the lesson browser page displays the newly added lessons in an organized grid layout with proper loading states and error handling, allowing users to browse all available math topics.",
+      "reqIds": [
+        "REQ-43"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-that-lesson-detail-pages-render-the-full-content-of-newly-added-lessons-including-formatted-text-pro-tips-sections-and-completion-functionality",
+      "title": "Verify that lesson detail pages render the full content of newly added lessons including formatted text, pro tips sections, and completion functionality.",
+      "reqIds": [
+        "REQ-44"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-the-deployed-frontend-on-mainnet-can-successfully-connect-to-the-deployed-backend-canister-and-load-all-core-functionality-lessons-list-lesson-details-practice-problems-practice-mode-topics-and-user-progress-tracking",
+      "title": "Verify the deployed frontend on mainnet can successfully connect to the deployed backend canister and load all core functionality: lessons list, lesson details, practice problems, practice mode topics, and user progress tracking.",
+      "reqIds": [
+        "REQ-46"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-internet-identity-authentication-works-correctly-on-the-mainnet-deployment-allowing-users-to-log-in-maintain-sessions-across-page-refreshes-and-access-authenticated-features",
+      "title": "Ensure Internet Identity authentication works correctly on the mainnet deployment, allowing users to log in, maintain sessions across page refreshes, and access authenticated features.",
+      "reqIds": [
+        "REQ-47"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-all-static-assets-including-generated-brainrot-themed-images-mascot-achievement-badges-lesson-illustrations-are-correctly-deployed-and-accessible-from-the-frontend-canister-on-mainnet",
+      "title": "Verify all static assets including generated brainrot-themed images (mascot, achievement badges, lesson illustrations) are correctly deployed and accessible from the frontend canister on mainnet.",
+      "reqIds": [
+        "REQ-49"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Add practice mode to the math learning app",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Add backend support for practice session data including the ability to fetch problems filtered by topic and save practice session results (topic, problems attempted, correct count, duration) to user progress",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Add multiplication and division to practice mode topics",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Create multiplication practice problems in the backend with brainrot-themed scenarios appropriate for middle school level, including a mix of single-digit, double-digit, and word problems",
+      "reqIds": [
+        "REQ-35"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Create division practice problems in the backend with brainrot-themed scenarios appropriate for middle school level, including whole number division, division with remainders, and word problems",
+      "reqIds": [
+        "REQ-36"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Deploy the application to the Internet Computer mainnet using `dfx deploy --network ic` with all canisters (backend and frontend) successfully installed and running",
+      "reqIds": [
+        "REQ-38"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Configure production-appropriate canister settings including cycle management and compute allocation to ensure the application remains available on mainnet",
+      "reqIds": [
+        "REQ-41"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "Add lessons to the math learning app",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Expand the backend lesson data to include a comprehensive set of middle school math lessons covering all existing practice mode topics: fractions, decimals, percentages, algebra, geometry, ratios, multiplication, and division. Each lesson must include brainrot-themed content with clear explanations, examples, and pro tips suitable for grades 6-8.",
+      "reqIds": [
+        "REQ-42"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Deploy the application to Internet Computer mainnet using `dfx deploy --network ic`, ensuring both backend and frontend canisters are successfully installed and running on the production network.",
+      "reqIds": [
+        "REQ-45"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-21",
+      "summary": "Configure production-appropriate canister settings for mainnet deployment including cycle management, compute allocation, and memory allocation to ensure the application remains stable and available.",
+      "reqIds": [
+        "REQ-48"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Alto singing tutor with pitch exercises and alto-range song transposition",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

@@ -1,0 +1,118 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Deploy Brainrot Math to Internet Computer Mainnet",
+  "requirements": [
+    {
+      "id": "REQ-45",
+      "summary": "Deploy application to Internet Computer mainnet with both backend and frontend canisters",
+      "acceptanceCriteria": [
+        "The `dfx deploy --network ic` command completes successfully without errors",
+        "Backend canister is deployed and accessible on mainnet",
+        "Frontend canister is deployed and accessible on mainnet",
+        "Both canisters return valid canister IDs that can be accessed via the IC network"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useActor.ts",
+          "operation": "modify",
+          "description": "Update the backend canister configuration to support mainnet deployment by ensuring the actor creation logic correctly resolves canister IDs from environment variables for both local and production networks. Verify that the DFX_NETWORK environment variable is properly handled to distinguish between local and mainnet deployments."
+        },
+        {
+          "path": "frontend/src/hooks/useInternetIdentity.ts",
+          "operation": "modify",
+          "description": "Configure Internet Identity authentication to work correctly on mainnet by ensuring the AuthClient initialization uses the correct Internet Identity canister URL for production (https://identity.ic0.app). Verify the derivationOrigin and other authentication parameters are properly set for mainnet deployment."
+        }
+      ]
+    },
+    {
+      "id": "REQ-46",
+      "summary": "Verify deployed frontend successfully connects to backend and loads all core functionality",
+      "acceptanceCriteria": [
+        "Frontend successfully connects to backend canister on mainnet",
+        "Lessons page loads and displays all lessons without errors",
+        "Lesson detail pages render complete content",
+        "Practice mode topics page displays all eight topics",
+        "Practice sessions can be started and completed",
+        "Progress tracking displays user statistics correctly"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LessonBrowser.tsx",
+          "operation": "modify",
+          "description": "Add error boundary handling and connection status indicators to gracefully handle mainnet network delays or connection issues when fetching lessons. Display helpful error messages if the backend canister is unreachable, guiding users to check their network connection or try again later."
+        },
+        {
+          "path": "frontend/src/pages/PracticeModePage.tsx",
+          "operation": "modify",
+          "description": "Add validation to ensure all eight practice topics are accessible on mainnet deployment. Include error handling for cases where the backend might not be fully initialized, with user-friendly messaging about deployment status."
+        },
+        {
+          "path": "frontend/src/pages/ProgressTracking.tsx",
+          "operation": "modify",
+          "description": "Enhance the progress tracking page to handle mainnet-specific scenarios such as slower query responses or authentication state transitions. Add loading states and retry mechanisms for progress data fetching to improve reliability on the production network."
+        }
+      ]
+    },
+    {
+      "id": "REQ-47",
+      "summary": "Ensure Internet Identity authentication works correctly on mainnet deployment",
+      "acceptanceCriteria": [
+        "Users can successfully log in using Internet Identity on mainnet",
+        "Authentication state persists across page refreshes",
+        "Authenticated users can complete lessons and submit practice scores",
+        "Logout functionality works correctly",
+        "Unauthenticated users see appropriate login prompts"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useInternetIdentity.ts",
+          "operation": "modify",
+          "description": "Verify and enhance Internet Identity integration for mainnet by ensuring proper session persistence using IndexedDB storage, correct handling of identity delegation chains, and appropriate timeout configurations. Add error recovery for authentication failures specific to mainnet conditions such as network latency or temporary unavailability."
+        },
+        {
+          "path": "frontend/src/components/Navigation.tsx",
+          "operation": "modify",
+          "description": "Update the authentication UI to provide clear feedback during mainnet login flows, including loading states during Internet Identity redirects and informative error messages if authentication fails. Ensure the login/logout dropdown menu handles mainnet-specific authentication states gracefully."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Add authentication state awareness to the hero section call-to-action buttons, ensuring unauthenticated users on mainnet see appropriate prompts to log in before accessing authenticated features like completing lessons or submitting practice scores."
+        }
+      ]
+    },
+    {
+      "id": "REQ-49",
+      "summary": "Verify all static assets including generated brainrot-themed images are correctly deployed and accessible",
+      "acceptanceCriteria": [
+        "All images in frontend/public/assets/generated are included in the deployment",
+        "Images load correctly on the homepage, lesson pages, and progress dashboard",
+        "No broken image links or 404 errors for static assets",
+        "Asset URLs resolve correctly through the frontend canister"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Verify that the hero section correctly loads the mascot image from frontend/public/assets/generated/mascot.dim_400x400.png and the hero banner from frontend/public/assets/generated/hero-banner.dim_1200x400.png. Ensure asset paths resolve correctly through the frontend canister on mainnet deployment. Add fallback handling for asset loading failures."
+        },
+        {
+          "path": "frontend/src/components/AchievementBadge.tsx",
+          "operation": "modify",
+          "description": "Ensure achievement badge images (frontend/public/assets/generated/badge-first-lesson.dim_128x128.png, frontend/public/assets/generated/badge-streak.dim_128x128.png, frontend/public/assets/generated/practice-trophy.dim_128x128.png) are correctly referenced and load successfully from the frontend canister on mainnet. Add error handling for missing or failed image loads."
+        },
+        {
+          "path": "frontend/src/pages/LessonDetail.tsx",
+          "operation": "modify",
+          "description": "Verify that lesson illustration images such as frontend/public/assets/generated/lesson-fractions.dim_600x400.png are accessible and displayed correctly on mainnet. Ensure the component gracefully handles cases where specific lesson images might not be available."
+        },
+        {
+          "path": "frontend/src/pages/PracticeArea.tsx",
+          "operation": "modify",
+          "description": "Ensure the practice hero image from frontend/public/assets/generated/practice-hero.dim_400x400.png loads correctly on mainnet deployment. Add visual feedback or fallback styling if the asset fails to load."
+        }
+      ]
+    }
+  ]
+}

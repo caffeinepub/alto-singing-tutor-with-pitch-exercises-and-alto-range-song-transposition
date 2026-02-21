@@ -1,120 +1,126 @@
 {
   "kind": "build_request",
-  "title": "Publish application to Internet Computer mainnet",
+  "title": "Deploy application to Internet Computer mainnet",
   "projectName": "Brainrot Math",
   "priority": "high",
   "requirements": [
     {
-      "id": "REQ-45",
-      "text": "Deploy the application to Internet Computer mainnet using `dfx deploy --network ic`, ensuring both backend and frontend canisters are successfully installed and running on the production network.",
+      "id": "REQ-50",
+      "text": "Deploy both backend and frontend canisters to the Internet Computer mainnet network using `dfx deploy --network ic`, ensuring all canisters are successfully installed and running on the production network.",
       "target": "both",
       "source": {
         "messageIds": [
-          "msg-user-publish"
+          "msg-latest"
         ],
         "quotes": [
-          "Publish app"
+          "Take the app online now"
         ]
       },
       "acceptanceCriteria": [
-        "The `dfx deploy --network ic` command completes successfully without errors",
-        "Backend canister is deployed and accessible on mainnet",
-        "Frontend canister is deployed and accessible on mainnet",
-        "Both canisters return valid canister IDs that can be accessed via the IC network"
+        "The backend canister deploys successfully to mainnet without errors",
+        "The frontend canister deploys successfully to mainnet without errors",
+        "Both canisters receive valid mainnet canister IDs",
+        "The deployment process completes without build or compilation errors",
+        "The mainnet frontend URL is accessible and loads without errors"
       ]
     },
     {
-      "id": "REQ-46",
-      "text": "Verify the deployed frontend on mainnet can successfully connect to the deployed backend canister and load all core functionality: lessons list, lesson details, practice problems, practice mode topics, and user progress tracking.",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-user-publish"
-        ],
-        "quotes": [
-          "Publish app"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Frontend successfully connects to backend canister on mainnet",
-        "Lessons page loads and displays all lessons without errors",
-        "Lesson detail pages render complete content",
-        "Practice mode topics page displays all eight topics",
-        "Practice sessions can be started and completed",
-        "Progress tracking displays user statistics correctly"
-      ]
-    },
-    {
-      "id": "REQ-47",
-      "text": "Ensure Internet Identity authentication works correctly on the mainnet deployment, allowing users to log in, maintain sessions across page refreshes, and access authenticated features.",
+      "id": "REQ-51",
+      "text": "Verify the deployed mainnet frontend can successfully connect to the deployed mainnet backend canister and load all core application data including lessons list, practice problems, and user progress.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-user-publish"
+          "msg-latest"
         ],
         "quotes": [
-          "Publish app"
+          "Take the app online now"
         ]
       },
       "acceptanceCriteria": [
-        "Users can successfully log in using Internet Identity on mainnet",
-        "Authentication state persists across page refreshes",
-        "Authenticated users can complete lessons and submit practice scores",
-        "Logout functionality works correctly",
-        "Unauthenticated users see appropriate login prompts"
+        "The frontend successfully initializes the actor with the mainnet canister ID",
+        "The lessons browser page loads and displays all lessons from the backend",
+        "Practice problems load correctly in both practice area and practice mode",
+        "Progress tracking page can fetch and display user data",
+        "No CORS or network configuration errors appear in the browser console"
       ]
     },
     {
-      "id": "REQ-48",
-      "text": "Configure production-appropriate canister settings for mainnet deployment including cycle management, compute allocation, and memory allocation to ensure the application remains stable and available.",
+      "id": "REQ-52",
+      "text": "Verify Internet Identity authentication works correctly on the mainnet deployment, allowing users to successfully log in, maintain authenticated sessions across page refreshes, and access all authenticated features including progress tracking and lesson completion.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Take the app online now"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Users can successfully authenticate using Internet Identity on mainnet",
+        "Authenticated sessions persist correctly across page refreshes",
+        "The Navigation component correctly displays login/logout states",
+        "Authenticated users can mark lessons as complete",
+        "Authenticated users can submit practice scores and view their progress",
+        "The authentication flow does not produce errors in production"
+      ]
+    },
+    {
+      "id": "REQ-53",
+      "text": "Verify all static assets including generated brainrot-themed images (mascot characters, achievement badges, lesson illustrations) stored in frontend/public/assets/generated are correctly deployed and accessible from the mainnet frontend canister.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-latest"
+        ],
+        "quotes": [
+          "Take the app online now"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All images in frontend/public/assets/generated are included in the mainnet deployment",
+        "Achievement badges render correctly in the ProgressDashboard component",
+        "The mascot image displays correctly on the homepage",
+        "All image URLs resolve successfully without 404 errors",
+        "Images load with appropriate performance and without CORS issues"
+      ]
+    },
+    {
+      "id": "REQ-54",
+      "text": "Configure production-appropriate canister settings for the mainnet deployment including sufficient cycles allocation to ensure the application remains available and responsive under normal usage patterns.",
       "target": "backend",
       "source": {
         "messageIds": [
-          "msg-user-publish"
+          "msg-latest"
         ],
         "quotes": [
-          "Publish app"
+          "Take the app online now"
         ]
       },
       "acceptanceCriteria": [
-        "Canisters are configured with sufficient cycles for production operation",
-        "Compute allocation is set appropriately for expected load",
-        "Memory limits are configured to prevent out-of-memory issues",
-        "Canister controllers are properly configured for ongoing management"
-      ]
-    },
-    {
-      "id": "REQ-49",
-      "text": "Verify all static assets including generated brainrot-themed images (mascot, achievement badges, lesson illustrations) are correctly deployed and accessible from the frontend canister on mainnet.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-user-publish"
-        ],
-        "quotes": [
-          "Publish app"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All images in frontend/public/assets/generated are included in the deployment",
-        "Images load correctly on the homepage, lesson pages, and progress dashboard",
-        "No broken image links or 404 errors for static assets",
-        "Asset URLs resolve correctly through the frontend canister"
+        "Both canisters are funded with sufficient cycles for sustained operation",
+        "Canister settings include appropriate compute allocation for production workloads",
+        "Memory allocation is configured to handle expected data growth",
+        "The deployment includes monitoring or alerting for low cycle balances",
+        "Cycle consumption rates are documented for maintenance planning"
       ]
     }
   ],
   "constraints": [
-    "Must deploy to Internet Computer mainnet using standard dfx workflow",
-    "Must not modify the single-actor backend architecture during deployment",
-    "Must preserve all existing user data and progress through migration if upgrading",
-    "Must maintain compatibility with Internet Identity authentication on mainnet"
+    "Use the standard Internet Computer mainnet deployment workflow with `dfx deploy --network ic`",
+    "Preserve the existing single-actor backend architecture in main.mo",
+    "Do not modify immutable frontend paths including useInternetIdentity.ts, useActor.ts, main.tsx, and frontend/src/components/ui",
+    "Ensure all existing functionality (lessons, practice problems, progress tracking, authentication) continues to work correctly on mainnet",
+    "Maintain the existing neon green brainrot-themed visual design"
   ],
   "nonGoals": [
-    "Creating new features or functionality beyond what already exists",
-    "Modifying the visual theme or branding",
-    "Adding new lessons or practice problems",
-    "Implementing analytics or monitoring tools",
-    "Setting up custom domain names or DNS configuration"
+    "Adding new features or functionality beyond deployment",
+    "Changing the technology stack or framework choices",
+    "Modifying the visual design or theme",
+    "Adding new math topics or lesson content",
+    "Implementing analytics or monitoring dashboards",
+    "Setting up custom domains or DNS configuration",
+    "Creating automated deployment pipelines or CI/CD workflows"
   ],
   "imageRequirements": {
     "required": [],

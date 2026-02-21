@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 23,
+  "projectStateVersion": 25,
   "summary": "Math learning app for middle schoolers centered around brainrot themes.",
   "architectural_notes": [],
   "known_issues": [],
@@ -407,6 +407,46 @@
       "summary": "Configure production-appropriate canister settings for mainnet deployment including cycle management, compute allocation, and memory allocation to ensure the application remains stable and available.",
       "reqIds": [
         "REQ-48"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-22",
+      "summary": "Deploy both backend and frontend canisters to the Internet Computer mainnet network using `dfx deploy --network ic`, ensuring all canisters are successfully installed and running on the production network.",
+      "reqIds": [
+        "REQ-50"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-23",
+      "summary": "Verify the deployed mainnet frontend can successfully connect to the deployed mainnet backend canister and load all core application data including lessons list, practice problems, and user progress.",
+      "reqIds": [
+        "REQ-51"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-24",
+      "summary": "Verify Internet Identity authentication works correctly on the mainnet deployment, allowing users to successfully log in, maintain authenticated sessions across page refreshes, and access all authenticated features including progress tracking and lesson completion.",
+      "reqIds": [
+        "REQ-52"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-25",
+      "summary": "Verify all static assets including generated brainrot-themed images (mascot characters, achievement badges, lesson illustrations) stored in frontend/public/assets/generated are correctly deployed and accessible from the mainnet frontend canister.",
+      "reqIds": [
+        "REQ-53"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-26",
+      "summary": "Configure production-appropriate canister settings for the mainnet deployment including sufficient cycles allocation to ensure the application remains available and responsive under normal usage patterns.",
+      "reqIds": [
+        "REQ-54"
       ],
       "status": "pending"
     }

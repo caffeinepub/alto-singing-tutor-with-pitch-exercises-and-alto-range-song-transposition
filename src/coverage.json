@@ -1,92 +1,73 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-20T22:22:40.701Z",
+  "generatedAt": "2026-02-21T00:45:25.354Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
     "total": 5,
-    "implemented": 3,
+    "implemented": 0,
     "items": [
       {
-        "id": "REQ-45",
-        "summary": "Deploy the application to Internet Computer mainnet using `dfx deploy --network ic`, ensuring both backend and frontend canisters are successfully installed and running on the production network.",
+        "id": "REQ-50",
+        "summary": "Deploy both backend and frontend canisters to the Internet Computer mainnet network using `dfx deploy --network ic`, ensuring all canisters are successfully installed and running on the production network.",
         "status": "missing",
         "plannedFiles": [
-          "frontend/src/hooks/useActor.ts",
-          "frontend/src/hooks/useInternetIdentity.ts"
+          "frontend/src/hooks/useActor.ts"
         ],
         "matchedFiles": []
       },
       {
-        "id": "REQ-46",
-        "summary": "Verify the deployed frontend on mainnet can successfully connect to the deployed backend canister and load all core functionality: lessons list, lesson details, practice problems, practice mode topics, and user progress tracking.",
-        "status": "implemented",
+        "id": "REQ-51",
+        "summary": "Verify the deployed mainnet frontend can successfully connect to the deployed mainnet backend canister and load all core application data including lessons list, practice problems, and user progress.",
+        "status": "missing",
         "plannedFiles": [
           "frontend/src/pages/LessonBrowser.tsx",
-          "frontend/src/pages/PracticeModePage.tsx",
+          "frontend/src/pages/PracticeArea.tsx",
+          "frontend/src/pages/PracticeSessionPage.tsx",
           "frontend/src/pages/ProgressTracking.tsx"
         ],
-        "matchedFiles": [
-          "frontend/src/pages/LessonBrowser.tsx",
-          "frontend/src/pages/PracticeModePage.tsx",
-          "frontend/src/pages/ProgressTracking.tsx"
-        ]
+        "matchedFiles": []
       },
       {
-        "id": "REQ-47",
-        "summary": "Ensure Internet Identity authentication works correctly on the mainnet deployment, allowing users to log in, maintain sessions across page refreshes, and access authenticated features.",
-        "status": "implemented",
+        "id": "REQ-52",
+        "summary": "Verify Internet Identity authentication works correctly on the mainnet deployment, allowing users to successfully log in, maintain authenticated sessions across page refreshes, and access all authenticated features including progress tracking and lesson completion.",
+        "status": "missing",
         "plannedFiles": [
           "frontend/src/hooks/useInternetIdentity.ts",
           "frontend/src/components/Navigation.tsx",
-          "frontend/src/pages/HomePage.tsx"
+          "frontend/src/pages/LessonDetail.tsx",
+          "frontend/src/pages/PracticeSessionPage.tsx",
+          "frontend/src/components/ProgressDashboard.tsx"
         ],
-        "matchedFiles": [
-          "frontend/src/pages/HomePage.tsx"
-        ]
-      },
-      {
-        "id": "REQ-48",
-        "summary": "Configure production-appropriate canister settings for mainnet deployment including cycle management, compute allocation, and memory allocation to ensure the application remains stable and available.",
-        "status": "unknown",
-        "plannedFiles": [],
         "matchedFiles": []
       },
       {
-        "id": "REQ-49",
-        "summary": "Verify all static assets including generated brainrot-themed images (mascot, achievement badges, lesson illustrations) are correctly deployed and accessible from the frontend canister on mainnet.",
-        "status": "implemented",
+        "id": "REQ-53",
+        "summary": "Verify all static assets including generated brainrot-themed images (mascot characters, achievement badges, lesson illustrations) stored in frontend/public/assets/generated are correctly deployed and accessible from the mainnet frontend canister.",
+        "status": "missing",
         "plannedFiles": [
-          "frontend/src/pages/HomePage.tsx",
           "frontend/src/components/AchievementBadge.tsx",
-          "frontend/src/pages/LessonDetail.tsx",
-          "frontend/src/pages/PracticeArea.tsx"
+          "frontend/src/pages/HomePage.tsx",
+          "frontend/src/components/ProgressDashboard.tsx"
         ],
-        "matchedFiles": [
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/src/components/AchievementBadge.tsx",
-          "frontend/src/pages/LessonDetail.tsx",
-          "frontend/src/pages/PracticeArea.tsx"
-        ]
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-54",
+        "summary": "Configure production-appropriate canister settings for the mainnet deployment including sufficient cycles allocation to ensure the application remains available and responsive under normal usage patterns.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
       }
     ]
   },
   "changedFiles": [
-    "backend/main.mo",
     "build-request.json",
     "feature_evidence.json",
-    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/AchievementBadge.tsx",
-    "frontend/src/pages/HomePage.tsx",
-    "frontend/src/pages/LessonBrowser.tsx",
-    "frontend/src/pages/LessonDetail.tsx",
-    "frontend/src/pages/PracticeArea.tsx",
-    "frontend/src/pages/PracticeModePage.tsx",
-    "frontend/src/pages/ProgressTracking.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

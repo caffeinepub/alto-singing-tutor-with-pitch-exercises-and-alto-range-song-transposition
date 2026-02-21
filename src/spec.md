@@ -1,13 +1,13 @@
 # Specification
 
 ## Summary
-**Goal:** Deploy Brainrot Math application to Internet Computer mainnet for public access.
+**Goal:** Deploy the Brainrot Math application to the Internet Computer mainnet network.
 
 **Planned changes:**
-- Deploy backend and frontend canisters to IC mainnet using `dfx deploy --network ic`
-- Configure production canister settings (cycles, compute allocation, memory limits)
-- Verify Internet Identity authentication works on mainnet
-- Ensure all static assets and generated images are accessible
-- Test core functionality: lessons, practice mode, progress tracking
+- Deploy both backend and frontend canisters to mainnet using `dfx deploy --network ic`
+- Verify mainnet frontend successfully connects to mainnet backend and loads all application data
+- Verify Internet Identity authentication works correctly on mainnet
+- Verify all static assets including brainrot-themed images are accessible from mainnet
+- Configure production canister settings with sufficient cycles allocation
 
-**User-visible outcome:** The application is publicly accessible on Internet Computer mainnet with full functionality including lessons, practice problems, achievement tracking, and Internet Identity login.
+**User-visible outcome:** The application will be accessible on the Internet Computer mainnet at a public URL, allowing anyone to browse lessons, practice math problems with brainrot-themed content, authenticate with Internet Identity, and track their progress.

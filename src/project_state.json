@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 25,
+  "projectStateVersion": 29,
   "summary": "Math learning app for middle schoolers centered around brainrot themes.",
   "architectural_notes": [],
   "known_issues": [],
@@ -325,6 +325,22 @@
         "REQ-49"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-verify-that-the-lesson-browser-page-correctly-displays-all-newly-added-lessons-organized-by-topic-in-the-grid-layout-with-proper-loading-states-and-error-handling",
+      "title": "Verify that the lesson browser page correctly displays all newly added lessons organized by topic in the grid layout with proper loading states and error handling.",
+      "reqIds": [
+        "REQ-71"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-verify-that-lesson-detail-pages-render-the-full-content-of-all-newly-added-lessons-including-formatted-text-pro-tips-sections-and-completion-functionality-for-all-8-topics",
+      "title": "Verify that lesson detail pages render the full content of all newly added lessons including formatted text, pro tips sections, and completion functionality for all 8 topics.",
+      "reqIds": [
+        "REQ-72"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -447,6 +463,146 @@
       "summary": "Configure production-appropriate canister settings for the mainnet deployment including sufficient cycles allocation to ensure the application remains available and responsive under normal usage patterns.",
       "reqIds": [
         "REQ-54"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-27",
+      "summary": "Add math practice problems for each topic in the practice mode (fractions, decimals, percentages, algebra, geometry, ratios, multiplication, division)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-28",
+      "summary": "Add at least 10 practice problems for the 'Fractions' topic in the backend initialization, including operations like addition, subtraction, multiplication, and division of fractions, presented with brainrot-themed scenarios appropriate for middle school level.",
+      "reqIds": [
+        "REQ-55"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-29",
+      "summary": "Add at least 10 practice problems for the 'Decimals' topic in the backend initialization, including decimal operations, conversion between fractions and decimals, and rounding, presented with brainrot-themed scenarios appropriate for middle school level.",
+      "reqIds": [
+        "REQ-56"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-30",
+      "summary": "Add at least 10 practice problems for the 'Percentages' topic in the backend initialization, including percentage calculations, percent increase/decrease, and real-world applications, presented with brainrot-themed scenarios appropriate for middle school level.",
+      "reqIds": [
+        "REQ-57"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-31",
+      "summary": "Add at least 10 practice problems for the 'Algebra' topic in the backend initialization, including solving linear equations, simplifying expressions, and basic algebraic concepts, presented with brainrot-themed scenarios appropriate for middle school level.",
+      "reqIds": [
+        "REQ-58"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-32",
+      "summary": "Add at least 10 practice problems for the 'Geometry' topic in the backend initialization, including area, perimeter, volume calculations, and angle measurements, presented with brainrot-themed scenarios appropriate for middle school level.",
+      "reqIds": [
+        "REQ-59"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-33",
+      "summary": "Add at least 10 practice problems for the 'Ratios' topic in the backend initialization, including ratio simplification, proportions, and real-world ratio applications, presented with brainrot-themed scenarios appropriate for middle school level.",
+      "reqIds": [
+        "REQ-60"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-34",
+      "summary": "Verify that the existing multiplication practice problems in the backend are sufficient (at least 10 problems) and add more if needed, ensuring they cover single-digit, double-digit, and word problems with brainrot-themed scenarios.",
+      "reqIds": [
+        "REQ-61"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-35",
+      "summary": "Verify that the existing division practice problems in the backend are sufficient (at least 10 problems) and add more if needed, ensuring they cover whole number division, division with remainders, and word problems with brainrot-themed scenarios.",
+      "reqIds": [
+        "REQ-62"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-36",
+      "summary": "Add comprehensive lessons for all practice mode topics (fractions, decimals, percentages, algebra, geometry, ratios, multiplication, division) with brainrot-themed content suitable for middle school level",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-37",
+      "summary": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Fractions' topic, covering foundational concepts like equivalent fractions, adding/subtracting fractions with like and unlike denominators, and multiplying/dividing fractions. Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+      "reqIds": [
+        "REQ-63"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-38",
+      "summary": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Decimals' topic, covering place value, decimal operations (addition, subtraction, multiplication, division), and converting between fractions and decimals. Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+      "reqIds": [
+        "REQ-64"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-39",
+      "summary": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Percentages' topic, covering percent basics, calculating percentages, percent increase/decrease, and real-world percentage applications (discounts, tips, sales tax). Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+      "reqIds": [
+        "REQ-65"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-40",
+      "summary": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Algebra' topic, covering algebraic expressions, solving one-step and two-step equations, combining like terms, and the distributive property. Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+      "reqIds": [
+        "REQ-66"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-41",
+      "summary": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Geometry' topic, covering area and perimeter of 2D shapes (rectangles, triangles, circles), volume of 3D shapes (rectangular prisms, cylinders), and angle relationships (complementary, supplementary). Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+      "reqIds": [
+        "REQ-67"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-42",
+      "summary": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Ratios' topic, covering ratio basics and simplification, equivalent ratios, solving proportions, and real-world ratio applications (recipes, scale models). Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+      "reqIds": [
+        "REQ-68"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-43",
+      "summary": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Multiplication' topic, covering multiplication facts and strategies, multi-digit multiplication, properties of multiplication (commutative, associative, distributive), and word problems. Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+      "reqIds": [
+        "REQ-69"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-44",
+      "summary": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Division' topic, covering division facts and strategies, long division, division with remainders, divisibility rules, and word problems. Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+      "reqIds": [
+        "REQ-70"
       ],
       "status": "pending"
     }

@@ -1,123 +1,49 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Deploy application to Internet Computer mainnet",
+  "title": "Add comprehensive lessons for all practice mode topics - Frontend verification",
   "requirements": [
     {
-      "id": "REQ-50",
-      "summary": "Deploy both backend and frontend canisters to Internet Computer mainnet network",
+      "id": "REQ-71",
+      "summary": "Verify that the lesson browser page correctly displays all newly added lessons organized by topic in the grid layout with proper loading states and error handling.",
       "acceptanceCriteria": [
-        "The backend canister deploys successfully to mainnet without errors",
-        "The frontend canister deploys successfully to mainnet without errors",
-        "Both canisters receive valid mainnet canister IDs",
-        "The deployment process completes without build or compilation errors",
-        "The mainnet frontend URL is accessible and loads without errors"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/hooks/useActor.ts",
-          "operation": "modify",
-          "description": "Verify the actor initialization correctly uses the mainnet canister ID from process.env after deployment. Ensure the createActor function properly connects to the deployed mainnet backend canister."
-        }
-      ]
-    },
-    {
-      "id": "REQ-51",
-      "summary": "Verify mainnet frontend successfully connects to mainnet backend and loads all core application data",
-      "acceptanceCriteria": [
-        "The frontend successfully initializes the actor with the mainnet canister ID",
-        "The lessons browser page loads and displays all lessons from the backend",
-        "Practice problems load correctly in both practice area and practice mode",
-        "Progress tracking page can fetch and display user data",
-        "No CORS or network configuration errors appear in the browser console"
+        "All newly added lessons for all 8 topics appear in the lesson browser",
+        "Lessons are properly organized and filterable by topic",
+        "Loading states display correctly while fetching lessons",
+        "Error handling with retry functionality works if lesson fetch fails"
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/LessonBrowser.tsx",
           "operation": "modify",
-          "description": "Add console logging or error boundary to verify lessons are loading correctly from the mainnet backend. Ensure error messages clearly distinguish between network issues and data fetch failures."
+          "description": "Review and verify that the existing lesson browser correctly displays all lessons fetched via useLessons hook, including the newly added backend lessons for all 8 topics (Fractions, Decimals, Percentages, Algebra, Geometry, Ratios, Multiplication, Division). Ensure the grid layout, loading states, error handling with retry, and topic organization work correctly for the expanded lesson set. Add topic filtering UI if not already present to allow users to filter lessons by topic."
         },
         {
-          "path": "frontend/src/pages/PracticeArea.tsx",
+          "path": "frontend/src/hooks/useLessons.ts",
           "operation": "modify",
-          "description": "Add verification that practice problems load correctly from the mainnet backend with appropriate error handling for network failures."
-        },
-        {
-          "path": "frontend/src/pages/PracticeSessionPage.tsx",
-          "operation": "modify",
-          "description": "Verify topic-filtered practice problems load correctly from mainnet backend using usePracticeProblemsByTopic hook with proper error states."
-        },
-        {
-          "path": "frontend/src/pages/ProgressTracking.tsx",
-          "operation": "modify",
-          "description": "Ensure the ProgressDashboard receives valid data from the mainnet backend useProgress hook with clear error messaging if data fetch fails."
+          "description": "Verify that the useLessons hook correctly fetches all lessons from the backend actor's getLessons() method. Ensure proper error handling and React Query configuration to support the lesson browser's requirements for displaying the expanded lesson set."
         }
       ]
     },
     {
-      "id": "REQ-52",
-      "summary": "Verify Internet Identity authentication works correctly on mainnet deployment",
+      "id": "REQ-72",
+      "summary": "Verify that lesson detail pages render the full content of all newly added lessons including formatted text, pro tips sections, and completion functionality for all 8 topics.",
       "acceptanceCriteria": [
-        "Users can successfully authenticate using Internet Identity on mainnet",
-        "Authenticated sessions persist correctly across page refreshes",
-        "The Navigation component correctly displays login/logout states",
-        "Authenticated users can mark lessons as complete",
-        "Authenticated users can submit practice scores and view their progress",
-        "The authentication flow does not produce errors in production"
+        "Lesson detail pages display complete content for all new lessons",
+        "Markdown-style formatting (headings, bold text, lists) renders correctly",
+        "Pro tips sections are extracted and displayed prominently",
+        "Mark as complete button functions correctly for all lessons"
       ],
       "file_operations": [
-        {
-          "path": "frontend/src/hooks/useInternetIdentity.ts",
-          "operation": "modify",
-          "description": "Verify the AuthClient initialization uses the production Internet Identity URL (https://identity.ic0.app) and that delegation validation works correctly on mainnet. Ensure session persistence across page refreshes functions properly in production."
-        },
-        {
-          "path": "frontend/src/components/Navigation.tsx",
-          "operation": "modify",
-          "description": "Verify the authentication dropdown correctly displays login/logout states based on Internet Identity authentication status on mainnet, with proper visual feedback for authenticated users."
-        },
         {
           "path": "frontend/src/pages/LessonDetail.tsx",
           "operation": "modify",
-          "description": "Verify authenticated users can successfully mark lessons as complete using useCompleteLesson hook against the mainnet backend, with appropriate success feedback."
+          "description": "Review and verify that the lesson detail page correctly renders all lesson content including the newly added comprehensive lessons for all 8 topics. Ensure markdown-style formatting (headings using ##, bold text using **, lists) renders correctly, pro tips sections are properly extracted and displayed prominently, and the mark as complete button works via useCompleteLesson hook for all lesson IDs."
         },
         {
-          "path": "frontend/src/pages/PracticeSessionPage.tsx",
+          "path": "frontend/src/hooks/useCompleteLesson.ts",
           "operation": "modify",
-          "description": "Ensure authenticated users can submit practice sessions using useSubmitPracticeSession hook to the mainnet backend, with session data persisting correctly."
-        },
-        {
-          "path": "frontend/src/components/ProgressDashboard.tsx",
-          "operation": "modify",
-          "description": "Verify authenticated users can view their progress data including completed lessons, streak, achievements, and practice scores loaded from mainnet backend."
-        }
-      ]
-    },
-    {
-      "id": "REQ-53",
-      "summary": "Verify all static assets including generated brainrot-themed images are correctly deployed and accessible from mainnet",
-      "acceptanceCriteria": [
-        "All images in frontend/public/assets/generated are included in the mainnet deployment",
-        "Achievement badges render correctly in the ProgressDashboard component",
-        "The mascot image displays correctly on the homepage",
-        "All image URLs resolve successfully without 404 errors",
-        "Images load with appropriate performance and without CORS issues"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/AchievementBadge.tsx",
-          "operation": "modify",
-          "description": "Verify achievement badge images load correctly from frontend/public/assets/generated/badge-first-lesson.dim_128x128.png, frontend/public/assets/generated/badge-streak.dim_128x128.png, and frontend/public/assets/generated/practice-trophy.dim_128x128.png on mainnet with proper error handling for missing assets."
-        },
-        {
-          "path": "frontend/src/pages/HomePage.tsx",
-          "operation": "modify",
-          "description": "Verify the mascot image at frontend/public/assets/generated/mascot.dim_400x400.png displays correctly in the hero section on mainnet, with fallback handling if the image fails to load."
-        },
-        {
-          "path": "frontend/src/components/ProgressDashboard.tsx",
-          "operation": "modify",
-          "description": "Verify all achievement badges render correctly with images from frontend/public/assets/generated/ directory, ensuring the AchievementBadge component receives valid achievement names and images load without 404 errors."
+          "description": "Verify that the useCompleteLesson mutation hook correctly calls the backend's completeLesson method and invalidates the progress query cache on success. Ensure it handles all lesson IDs from the expanded lesson set correctly."
         }
       ]
     }

@@ -1,126 +1,211 @@
 {
   "kind": "build_request",
-  "title": "Deploy application to Internet Computer mainnet",
+  "title": "Add comprehensive lessons for all practice mode topics",
   "projectName": "Brainrot Math",
-  "priority": "high",
+  "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-50",
-      "text": "Deploy both backend and frontend canisters to the Internet Computer mainnet network using `dfx deploy --network ic`, ensuring all canisters are successfully installed and running on the production network.",
-      "target": "both",
-      "source": {
-        "messageIds": [
-          "msg-latest"
-        ],
-        "quotes": [
-          "Take the app online now"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The backend canister deploys successfully to mainnet without errors",
-        "The frontend canister deploys successfully to mainnet without errors",
-        "Both canisters receive valid mainnet canister IDs",
-        "The deployment process completes without build or compilation errors",
-        "The mainnet frontend URL is accessible and loads without errors"
-      ]
-    },
-    {
-      "id": "REQ-51",
-      "text": "Verify the deployed mainnet frontend can successfully connect to the deployed mainnet backend canister and load all core application data including lessons list, practice problems, and user progress.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-latest"
-        ],
-        "quotes": [
-          "Take the app online now"
-        ]
-      },
-      "acceptanceCriteria": [
-        "The frontend successfully initializes the actor with the mainnet canister ID",
-        "The lessons browser page loads and displays all lessons from the backend",
-        "Practice problems load correctly in both practice area and practice mode",
-        "Progress tracking page can fetch and display user data",
-        "No CORS or network configuration errors appear in the browser console"
-      ]
-    },
-    {
-      "id": "REQ-52",
-      "text": "Verify Internet Identity authentication works correctly on the mainnet deployment, allowing users to successfully log in, maintain authenticated sessions across page refreshes, and access all authenticated features including progress tracking and lesson completion.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-latest"
-        ],
-        "quotes": [
-          "Take the app online now"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Users can successfully authenticate using Internet Identity on mainnet",
-        "Authenticated sessions persist correctly across page refreshes",
-        "The Navigation component correctly displays login/logout states",
-        "Authenticated users can mark lessons as complete",
-        "Authenticated users can submit practice scores and view their progress",
-        "The authentication flow does not produce errors in production"
-      ]
-    },
-    {
-      "id": "REQ-53",
-      "text": "Verify all static assets including generated brainrot-themed images (mascot characters, achievement badges, lesson illustrations) stored in frontend/public/assets/generated are correctly deployed and accessible from the mainnet frontend canister.",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-latest"
-        ],
-        "quotes": [
-          "Take the app online now"
-        ]
-      },
-      "acceptanceCriteria": [
-        "All images in frontend/public/assets/generated are included in the mainnet deployment",
-        "Achievement badges render correctly in the ProgressDashboard component",
-        "The mascot image displays correctly on the homepage",
-        "All image URLs resolve successfully without 404 errors",
-        "Images load with appropriate performance and without CORS issues"
-      ]
-    },
-    {
-      "id": "REQ-54",
-      "text": "Configure production-appropriate canister settings for the mainnet deployment including sufficient cycles allocation to ensure the application remains available and responsive under normal usage patterns.",
+      "id": "REQ-63",
+      "text": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Fractions' topic, covering foundational concepts like equivalent fractions, adding/subtracting fractions with like and unlike denominators, and multiplying/dividing fractions. Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
       "target": "backend",
       "source": {
         "messageIds": [
-          "msg-latest"
+          "msg-user-final"
         ],
         "quotes": [
-          "Take the app online now"
+          "Add lessons to all topics"
         ]
       },
       "acceptanceCriteria": [
-        "Both canisters are funded with sufficient cycles for sustained operation",
-        "Canister settings include appropriate compute allocation for production workloads",
-        "Memory allocation is configured to handle expected data growth",
-        "The deployment includes monitoring or alerting for low cycle balances",
-        "Cycle consumption rates are documented for maintenance planning"
+        "At least 3 fractions lessons are added to the backend initialization",
+        "Each lesson includes brainrot-themed content with clear explanations",
+        "Lessons cover key fractions concepts appropriate for grades 6-8",
+        "Each lesson includes pro tips sections"
+      ]
+    },
+    {
+      "id": "REQ-64",
+      "text": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Decimals' topic, covering place value, decimal operations (addition, subtraction, multiplication, division), and converting between fractions and decimals. Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Add lessons to all topics"
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least 3 decimals lessons are added to the backend initialization",
+        "Each lesson includes brainrot-themed content with clear explanations",
+        "Lessons cover key decimals concepts appropriate for grades 6-8",
+        "Each lesson includes pro tips sections"
+      ]
+    },
+    {
+      "id": "REQ-65",
+      "text": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Percentages' topic, covering percent basics, calculating percentages, percent increase/decrease, and real-world percentage applications (discounts, tips, sales tax). Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Add lessons to all topics"
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least 3 percentages lessons are added to the backend initialization",
+        "Each lesson includes brainrot-themed content with clear explanations",
+        "Lessons cover key percentage concepts appropriate for grades 6-8",
+        "Each lesson includes pro tips sections"
+      ]
+    },
+    {
+      "id": "REQ-66",
+      "text": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Algebra' topic, covering algebraic expressions, solving one-step and two-step equations, combining like terms, and the distributive property. Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Add lessons to all topics"
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least 3 algebra lessons are added to the backend initialization",
+        "Each lesson includes brainrot-themed content with clear explanations",
+        "Lessons cover foundational algebra concepts appropriate for grades 6-8",
+        "Each lesson includes pro tips sections"
+      ]
+    },
+    {
+      "id": "REQ-67",
+      "text": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Geometry' topic, covering area and perimeter of 2D shapes (rectangles, triangles, circles), volume of 3D shapes (rectangular prisms, cylinders), and angle relationships (complementary, supplementary). Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Add lessons to all topics"
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least 3 geometry lessons are added to the backend initialization",
+        "Each lesson includes brainrot-themed content with clear explanations",
+        "Lessons cover key geometry concepts appropriate for grades 6-8",
+        "Each lesson includes pro tips sections"
+      ]
+    },
+    {
+      "id": "REQ-68",
+      "text": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Ratios' topic, covering ratio basics and simplification, equivalent ratios, solving proportions, and real-world ratio applications (recipes, scale models). Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Add lessons to all topics"
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least 3 ratios lessons are added to the backend initialization",
+        "Each lesson includes brainrot-themed content with clear explanations",
+        "Lessons cover key ratio and proportion concepts appropriate for grades 6-8",
+        "Each lesson includes pro tips sections"
+      ]
+    },
+    {
+      "id": "REQ-69",
+      "text": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Multiplication' topic, covering multiplication facts and strategies, multi-digit multiplication, properties of multiplication (commutative, associative, distributive), and word problems. Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Add lessons to all topics"
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least 3 multiplication lessons are added to the backend initialization",
+        "Each lesson includes brainrot-themed content with clear explanations",
+        "Lessons cover multiplication concepts appropriate for grades 6-8",
+        "Each lesson includes pro tips sections"
+      ]
+    },
+    {
+      "id": "REQ-70",
+      "text": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Division' topic, covering division facts and strategies, long division, division with remainders, divisibility rules, and word problems. Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Add lessons to all topics"
+        ]
+      },
+      "acceptanceCriteria": [
+        "At least 3 division lessons are added to the backend initialization",
+        "Each lesson includes brainrot-themed content with clear explanations",
+        "Lessons cover division concepts appropriate for grades 6-8",
+        "Each lesson includes pro tips sections"
+      ]
+    },
+    {
+      "id": "REQ-71",
+      "text": "Verify that the lesson browser page correctly displays all newly added lessons organized by topic in the grid layout with proper loading states and error handling.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Add lessons to all topics"
+        ]
+      },
+      "acceptanceCriteria": [
+        "All newly added lessons for all 8 topics appear in the lesson browser",
+        "Lessons are properly organized and filterable by topic",
+        "Loading states display correctly while fetching lessons",
+        "Error handling with retry functionality works if lesson fetch fails"
+      ]
+    },
+    {
+      "id": "REQ-72",
+      "text": "Verify that lesson detail pages render the full content of all newly added lessons including formatted text, pro tips sections, and completion functionality for all 8 topics.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-user-final"
+        ],
+        "quotes": [
+          "Add lessons to all topics"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Lesson detail pages display complete content for all new lessons",
+        "Markdown-style formatting (headings, bold text, lists) renders correctly",
+        "Pro tips sections are extracted and displayed prominently",
+        "Mark as complete button functions correctly for all lessons"
       ]
     }
   ],
   "constraints": [
-    "Use the standard Internet Computer mainnet deployment workflow with `dfx deploy --network ic`",
-    "Preserve the existing single-actor backend architecture in main.mo",
-    "Do not modify immutable frontend paths including useInternetIdentity.ts, useActor.ts, main.tsx, and frontend/src/components/ui",
-    "Ensure all existing functionality (lessons, practice problems, progress tracking, authentication) continues to work correctly on mainnet",
-    "Maintain the existing neon green brainrot-themed visual design"
+    "All lesson content must maintain brainrot-themed humor and references consistent with existing content",
+    "Lesson difficulty and content must be appropriate for middle school students (grades 6-8)",
+    "Each topic must have at least 3 lessons to provide comprehensive coverage",
+    "All lessons must follow the existing Lesson type structure defined in backend/main.mo"
   ],
   "nonGoals": [
-    "Adding new features or functionality beyond deployment",
-    "Changing the technology stack or framework choices",
-    "Modifying the visual design or theme",
-    "Adding new math topics or lesson content",
-    "Implementing analytics or monitoring dashboards",
-    "Setting up custom domains or DNS configuration",
-    "Creating automated deployment pipelines or CI/CD workflows"
+    "Creating new practice problems (focus is on lessons only)",
+    "Modifying the lesson browser UI layout or design",
+    "Adding new topics beyond the existing 8 topics",
+    "Implementing lesson prerequisites or sequencing logic"
   ],
   "imageRequirements": {
     "required": [],

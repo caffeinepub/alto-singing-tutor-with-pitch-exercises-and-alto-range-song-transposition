@@ -1,5 +1,6 @@
 import { Lesson } from '../backend';
 import { BookOpen } from 'lucide-react';
+import { Badge } from './ui/badge';
 
 interface LessonCardProps {
   lesson: Lesson;
@@ -23,6 +24,28 @@ export default function LessonCard({ lesson, onClick }: LessonCardProps) {
     return lesson.content.substring(0, 100).replace(/[#*]/g, '');
   };
 
+  const topicEmojis: Record<string, string> = {
+    fractions: '🍕',
+    decimals: '🔢',
+    percentages: '📊',
+    algebra: '🧮',
+    geometry: '📐',
+    ratios: '⚖️',
+    multiplication: '✖️',
+    division: '➗',
+  };
+
+  const topicLabels: Record<string, string> = {
+    fractions: 'Fractions',
+    decimals: 'Decimals',
+    percentages: 'Percentages',
+    algebra: 'Algebra',
+    geometry: 'Geometry',
+    ratios: 'Ratios',
+    multiplication: 'Multiplication',
+    division: 'Division',
+  };
+
   return (
     <button
       onClick={onClick}
@@ -37,6 +60,11 @@ export default function LessonCard({ lesson, onClick }: LessonCardProps) {
         </div>
 
         <div className="space-y-2">
+          <div className="flex items-center gap-2">
+            <Badge variant="secondary" className="text-xs font-bold">
+              {topicEmojis[lesson.topic] || '📚'} {topicLabels[lesson.topic] || lesson.topic}
+            </Badge>
+          </div>
           <h3 className="text-xl font-black leading-tight">{lesson.title}</h3>
           <p className="line-clamp-2 text-sm font-medium text-muted-foreground">{getPreview()}</p>
         </div>

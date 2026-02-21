@@ -25,6 +25,7 @@ export const ProgressView = IDL.Record({
 export const Lesson = IDL.Record({
   'id' : IDL.Nat,
   'title' : IDL.Text,
+  'topic' : IDL.Text,
   'content' : IDL.Text,
   'difficulty' : IDL.Nat,
 });
@@ -44,9 +45,9 @@ export const PracticeProgress = IDL.Record({
 
 export const idlService = IDL.Service({
   'addAchievement' : IDL.Func([IDL.Text], [ProgressView], []),
-  'addMultiplicationProblems' : IDL.Func([], [], []),
   'completeLesson' : IDL.Func([IDL.Nat], [ProgressView], []),
   'getLessons' : IDL.Func([], [IDL.Vec(Lesson)], ['query']),
+  'getLessonsByTopic' : IDL.Func([IDL.Text], [IDL.Vec(Lesson)], ['query']),
   'getPracticeProblems' : IDL.Func([], [IDL.Vec(PracticeProblem)], ['query']),
   'getPracticeProgressByTopic' : IDL.Func(
       [IDL.Text],
@@ -85,6 +86,7 @@ export const idlFactory = ({ IDL }) => {
   const Lesson = IDL.Record({
     'id' : IDL.Nat,
     'title' : IDL.Text,
+    'topic' : IDL.Text,
     'content' : IDL.Text,
     'difficulty' : IDL.Nat,
   });
@@ -104,9 +106,9 @@ export const idlFactory = ({ IDL }) => {
   
   return IDL.Service({
     'addAchievement' : IDL.Func([IDL.Text], [ProgressView], []),
-    'addMultiplicationProblems' : IDL.Func([], [], []),
     'completeLesson' : IDL.Func([IDL.Nat], [ProgressView], []),
     'getLessons' : IDL.Func([], [IDL.Vec(Lesson)], ['query']),
+    'getLessonsByTopic' : IDL.Func([IDL.Text], [IDL.Vec(Lesson)], ['query']),
     'getPracticeProblems' : IDL.Func([], [IDL.Vec(PracticeProblem)], ['query']),
     'getPracticeProgressByTopic' : IDL.Func(
         [IDL.Text],

@@ -4,10 +4,25 @@ import { Loader2, AlertCircle, RefreshCw } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '../components/ui/alert';
 import { Button } from '../components/ui/button';
 import { useNavigate } from '@tanstack/react-router';
+import { useState } from 'react';
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '../components/ui/tabs';
 
 export default function LessonBrowser() {
   const { data: lessons, isLoading, error, refetch, isRefetching } = useLessons();
   const navigate = useNavigate();
+  const [selectedTopic, setSelectedTopic] = useState<string>('all');
+
+  const topics = [
+    { value: 'all', label: 'All Topics', emoji: '📚' },
+    { value: 'fractions', label: 'Fractions', emoji: '🍕' },
+    { value: 'decimals', label: 'Decimals', emoji: '🔢' },
+    { value: 'percentages', label: 'Percentages', emoji: '📊' },
+    { value: 'algebra', label: 'Algebra', emoji: '🧮' },
+    { value: 'geometry', label: 'Geometry', emoji: '📐' },
+    { value: 'ratios', label: 'Ratios', emoji: '⚖️' },
+    { value: 'multiplication', label: 'Multiplication', emoji: '✖️' },
+    { value: 'division', label: 'Division', emoji: '➗' },
+  ];
 
   if (isLoading) {
     return (
@@ -67,6 +82,15 @@ export default function LessonBrowser() {
   }
 
   const sortedLessons = [...lessons].sort((a, b) => Number(a.id) - Number(b.id));
+  
+  const filteredLessons = selectedTopic === 'all' 
+    ? sortedLessons 
+    : sortedLessons.filter(lesson => lesson.topic === selectedTopic);
+
+  const getLessonCountByTopic = (topic: string) => {
+    if (topic === 'all') return lessons.length;
+    return lessons.filter(l => l.topic === topic).length;
+  };
 
   return (
     <div className="space-y-8 py-8">
@@ -76,15 +100,44 @@ export default function LessonBrowser() {
         <p className="text-sm font-bold text-primary">{lessons.length} Lessons Available</p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {sortedLessons.map((lesson) => (
-          <LessonCard
-            key={lesson.id.toString()}
-            lesson={lesson}
-            onClick={() => navigate({ to: '/lessons/$id', params: { id: lesson.id.toString() } })}
-          />
-        ))}
-      </div>
+      <Tabs value={selectedTopic} onValueChange={setSelectedTopic} className="w-full">
+        <div className="overflow-x-auto pb-2">
+          <TabsList className="inline-flex h-auto w-auto flex-wrap justify-center gap-2 bg-transparent p-0">
+            {topics.map((topic) => (
+              <TabsTrigger
+                key={topic.value}
+                value={topic.value}
+                className="rounded-full border-2 border-border bg-card px-4 py-2 text-sm font-bold transition-all data-[state=active]:border-primary data-[state=active]:bg-primary data-[state=active]:text-primary-foreground hover:scale-105"
+              >
+                <span className="mr-2">{topic.emoji}</span>
+                {topic.label}
+                <span className="ml-2 rounded-full bg-background/20 px-2 py-0.5 text-xs">
+                  {getLessonCountByTopic(topic.value)}
+                </span>
+              </TabsTrigger>
+            ))}
+          </TabsList>
+        </div>
+
+        <TabsContent value={selectedTopic} className="mt-8">
+          {filteredLessons.length === 0 ? (
+            <div className="rounded-2xl border-2 border-border bg-card p-12 text-center">
+              <p className="text-lg font-bold text-muted-foreground">No lessons found for this topic!</p>
+              <p className="mt-2 text-sm text-muted-foreground">Try selecting a different topic.</p>
+            </div>
+          ) : (
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {filteredLessons.map((lesson) => (
+                <LessonCard
+                  key={lesson.id.toString()}
+                  lesson={lesson}
+                  onClick={() => navigate({ to: '/lessons/$id', params: { id: lesson.id.toString() } })}
+                />
+              ))}
+            </div>
+          )}
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }

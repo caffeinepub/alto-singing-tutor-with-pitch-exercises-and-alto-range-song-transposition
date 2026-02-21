@@ -3,6 +3,7 @@ import { useLessons } from '../hooks/useLessons';
 import { useCompleteLesson } from '../hooks/useCompleteLesson';
 import { ArrowLeft, CheckCircle, Loader2 } from 'lucide-react';
 import { useState } from 'react';
+import { Badge } from '../components/ui/badge';
 
 export default function LessonDetail() {
   const { id } = useParams({ from: '/lessons/$id' });
@@ -48,6 +49,28 @@ export default function LessonDetail() {
   }
 
   const difficultyStars = '⭐'.repeat(Number(lesson.difficulty));
+
+  const topicEmojis: Record<string, string> = {
+    fractions: '🍕',
+    decimals: '🔢',
+    percentages: '📊',
+    algebra: '🧮',
+    geometry: '📐',
+    ratios: '⚖️',
+    multiplication: '✖️',
+    division: '➗',
+  };
+
+  const topicLabels: Record<string, string> = {
+    fractions: 'Fractions',
+    decimals: 'Decimals',
+    percentages: 'Percentages',
+    algebra: 'Algebra',
+    geometry: 'Geometry',
+    ratios: 'Ratios',
+    multiplication: 'Multiplication',
+    division: 'Division',
+  };
 
   // Parse lesson content to extract sections
   const contentLines = lesson.content.split('\n').filter((line) => line.trim());
@@ -146,7 +169,12 @@ export default function LessonDetail() {
       <div className="space-y-6 rounded-3xl border-2 border-border bg-card p-8 shadow-xl md:p-12">
         <div className="space-y-4">
           <div className="flex items-start justify-between gap-4">
-            <h1 className="text-3xl font-black tracking-tight md:text-4xl">{lesson.title}</h1>
+            <div className="space-y-3">
+              <Badge variant="secondary" className="text-sm font-bold">
+                {topicEmojis[lesson.topic] || '📚'} {topicLabels[lesson.topic] || lesson.topic}
+              </Badge>
+              <h1 className="text-3xl font-black tracking-tight md:text-4xl">{lesson.title}</h1>
+            </div>
             <span className="text-2xl">{difficultyStars}</span>
           </div>
           <p className="text-sm font-bold text-muted-foreground">Difficulty Level: {lesson.difficulty.toString()}</p>

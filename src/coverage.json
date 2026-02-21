@@ -1,73 +1,111 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-21T00:45:25.354Z",
+  "generatedAt": "2026-02-21T04:30:03.377Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 5,
-    "implemented": 0,
+    "total": 10,
+    "implemented": 2,
     "items": [
       {
-        "id": "REQ-50",
-        "summary": "Deploy both backend and frontend canisters to the Internet Computer mainnet network using `dfx deploy --network ic`, ensuring all canisters are successfully installed and running on the production network.",
-        "status": "missing",
-        "plannedFiles": [
-          "frontend/src/hooks/useActor.ts"
-        ],
-        "matchedFiles": []
-      },
-      {
-        "id": "REQ-51",
-        "summary": "Verify the deployed mainnet frontend can successfully connect to the deployed mainnet backend canister and load all core application data including lessons list, practice problems, and user progress.",
-        "status": "missing",
-        "plannedFiles": [
-          "frontend/src/pages/LessonBrowser.tsx",
-          "frontend/src/pages/PracticeArea.tsx",
-          "frontend/src/pages/PracticeSessionPage.tsx",
-          "frontend/src/pages/ProgressTracking.tsx"
-        ],
-        "matchedFiles": []
-      },
-      {
-        "id": "REQ-52",
-        "summary": "Verify Internet Identity authentication works correctly on the mainnet deployment, allowing users to successfully log in, maintain authenticated sessions across page refreshes, and access all authenticated features including progress tracking and lesson completion.",
-        "status": "missing",
-        "plannedFiles": [
-          "frontend/src/hooks/useInternetIdentity.ts",
-          "frontend/src/components/Navigation.tsx",
-          "frontend/src/pages/LessonDetail.tsx",
-          "frontend/src/pages/PracticeSessionPage.tsx",
-          "frontend/src/components/ProgressDashboard.tsx"
-        ],
-        "matchedFiles": []
-      },
-      {
-        "id": "REQ-53",
-        "summary": "Verify all static assets including generated brainrot-themed images (mascot characters, achievement badges, lesson illustrations) stored in frontend/public/assets/generated are correctly deployed and accessible from the mainnet frontend canister.",
-        "status": "missing",
-        "plannedFiles": [
-          "frontend/src/components/AchievementBadge.tsx",
-          "frontend/src/pages/HomePage.tsx",
-          "frontend/src/components/ProgressDashboard.tsx"
-        ],
-        "matchedFiles": []
-      },
-      {
-        "id": "REQ-54",
-        "summary": "Configure production-appropriate canister settings for the mainnet deployment including sufficient cycles allocation to ensure the application remains available and responsive under normal usage patterns.",
+        "id": "REQ-63",
+        "summary": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Fractions' topic, covering foundational concepts like equivalent fractions, adding/subtracting fractions with like and unlike denominators, and multiplying/dividing fractions. Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
         "status": "unknown",
         "plannedFiles": [],
         "matchedFiles": []
+      },
+      {
+        "id": "REQ-64",
+        "summary": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Decimals' topic, covering place value, decimal operations (addition, subtraction, multiplication, division), and converting between fractions and decimals. Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-65",
+        "summary": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Percentages' topic, covering percent basics, calculating percentages, percent increase/decrease, and real-world percentage applications (discounts, tips, sales tax). Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-66",
+        "summary": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Algebra' topic, covering algebraic expressions, solving one-step and two-step equations, combining like terms, and the distributive property. Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-67",
+        "summary": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Geometry' topic, covering area and perimeter of 2D shapes (rectangles, triangles, circles), volume of 3D shapes (rectangular prisms, cylinders), and angle relationships (complementary, supplementary). Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-68",
+        "summary": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Ratios' topic, covering ratio basics and simplification, equivalent ratios, solving proportions, and real-world ratio applications (recipes, scale models). Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-69",
+        "summary": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Multiplication' topic, covering multiplication facts and strategies, multi-digit multiplication, properties of multiplication (commutative, associative, distributive), and word problems. Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-70",
+        "summary": "Expand the backend lesson initialization to include at least 3 comprehensive lessons for the 'Division' topic, covering division facts and strategies, long division, division with remainders, divisibility rules, and word problems. Each lesson must include brainrot-themed explanations, examples, and pro tips suitable for middle school (grades 6-8).",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      },
+      {
+        "id": "REQ-71",
+        "summary": "Verify that the lesson browser page correctly displays all newly added lessons organized by topic in the grid layout with proper loading states and error handling.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/LessonBrowser.tsx",
+          "frontend/src/hooks/useLessons.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/LessonBrowser.tsx"
+        ]
+      },
+      {
+        "id": "REQ-72",
+        "summary": "Verify that lesson detail pages render the full content of all newly added lessons including formatted text, pro tips sections, and completion functionality for all 8 topics.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/LessonDetail.tsx",
+          "frontend/src/hooks/useCompleteLesson.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/LessonDetail.tsx"
+        ]
       }
     ]
   },
   "changedFiles": [
+    "backend/main.mo",
+    "backend/migration.mo",
     "build-request.json",
     "feature_evidence.json",
+    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
+    "frontend/src/backend.d.ts",
+    "frontend/src/backend.ts",
+    "frontend/src/components/LessonCard.tsx",
+    "frontend/src/declarations/backend.did.d.ts",
+    "frontend/src/declarations/backend.did.js",
+    "frontend/src/pages/LessonBrowser.tsx",
+    "frontend/src/pages/LessonDetail.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

@@ -13,6 +13,7 @@ import type { Principal } from '@icp-sdk/core/principal';
 export interface Lesson {
   'id' : bigint,
   'title' : string,
+  'topic' : string,
   'content' : string,
   'difficulty' : bigint,
 }
@@ -45,9 +46,9 @@ export interface ProgressView {
 }
 export interface _SERVICE {
   'addAchievement' : ActorMethod<[string], ProgressView>,
-  'addMultiplicationProblems' : ActorMethod<[], undefined>,
   'completeLesson' : ActorMethod<[bigint], ProgressView>,
   'getLessons' : ActorMethod<[], Array<Lesson>>,
+  'getLessonsByTopic' : ActorMethod<[string], Array<Lesson>>,
   'getPracticeProblems' : ActorMethod<[], Array<PracticeProblem>>,
   'getPracticeProgressByTopic' : ActorMethod<[string], PracticeProgress>,
   'getPracticeSessions' : ActorMethod<[], Array<PracticeSession>>,

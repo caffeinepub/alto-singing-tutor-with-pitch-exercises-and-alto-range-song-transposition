@@ -1,4 +1,41 @@
 {
   "kind": "feature_evidence_report",
-  "features": []
+  "features": [
+    {
+      "featureId": "feature-verify-that-the-lesson-browser-page-correctly-displays-all-newly-added-lessons-organized-by-topic-in-the-grid-layout-with-proper-loading-states-and-error-handling",
+      "featureTitle": "Verify that the lesson browser page correctly displays all newly added lessons organized by topic in the grid layout with proper loading states and error handling.",
+      "files": [
+        "frontend/src/pages/LessonBrowser.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-71"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-verify-that-lesson-detail-pages-render-the-full-content-of-all-newly-added-lessons-including-formatted-text-pro-tips-sections-and-completion-functionality-for-all-8-topics",
+      "featureTitle": "Verify that lesson detail pages render the full content of all newly added lessons including formatted text, pro tips sections, and completion functionality for all 8 topics.",
+      "files": [
+        "frontend/src/pages/LessonDetail.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-72"
+      ],
+      "confidence": "high"
+    }
+  ]
 }

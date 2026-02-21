@@ -113,6 +113,7 @@ export interface PracticeSession {
 export interface Lesson {
     id: bigint;
     title: string;
+    topic: string;
     content: string;
     difficulty: bigint;
 }
@@ -124,9 +125,9 @@ export interface PracticeProgress {
 }
 export interface backendInterface {
     addAchievement(achievement: string): Promise<ProgressView>;
-    addMultiplicationProblems(): Promise<void>;
     completeLesson(lessonId: bigint): Promise<ProgressView>;
     getLessons(): Promise<Array<Lesson>>;
+    getLessonsByTopic(topic: string): Promise<Array<Lesson>>;
     getPracticeProblems(): Promise<Array<PracticeProblem>>;
     getPracticeProgressByTopic(topic: string): Promise<PracticeProgress>;
     getPracticeSessions(): Promise<Array<PracticeSession>>;
@@ -150,20 +151,6 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.addAchievement(arg0);
-            return result;
-        }
-    }
-    async addMultiplicationProblems(): Promise<void> {
-        if (this.processError) {
-            try {
-                const result = await this.actor.addMultiplicationProblems();
-                return result;
-            } catch (e) {
-                this.processError(e);
-                throw new Error("unreachable");
-            }
-        } else {
-            const result = await this.actor.addMultiplicationProblems();
             return result;
         }
     }
@@ -192,6 +179,20 @@ export class Backend implements backendInterface {
             }
         } else {
             const result = await this.actor.getLessons();
+            return result;
+        }
+    }
+    async getLessonsByTopic(arg0: string): Promise<Array<Lesson>> {
+        if (this.processError) {
+            try {
+                const result = await this.actor.getLessonsByTopic(arg0);
+                return result;
+            } catch (e) {
+                this.processError(e);
+                throw new Error("unreachable");
+            }
+        } else {
+            const result = await this.actor.getLessonsByTopic(arg0);
             return result;
         }
     }
